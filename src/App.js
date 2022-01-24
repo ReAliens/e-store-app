@@ -1,14 +1,20 @@
 import { ApolloProvider } from '@apollo/client';
+import React from 'react';
+import { BrowserRouter } from 'react-router-dom';
 import client from './Client';
 
-function App() {
-  return (
-    <ApolloProvider client={client}>
-      <div className="App">
-        <h1>Hello E-Store</h1>
-      </div>
-    </ApolloProvider>
-  );
+import AppRoutes from './routes/routes';
+
+class App extends React.PureComponent {
+  render() {
+    return (
+      <BrowserRouter>
+        <ApolloProvider client={client}>
+          <AppRoutes />
+        </ApolloProvider>
+      </BrowserRouter>
+    );
+  }
 }
 
 export default App;
